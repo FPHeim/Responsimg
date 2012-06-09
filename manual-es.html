@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Responsimg</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="style.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>        
+        <section>
+            <h2>
+                Manual de uso:
+            </h2>
+            
+            <article>
+                <p>
+                    Crear las imágenes, agregarles los prefijos correspondientes a las distintas versiones con el formato <em>"prefijo-nombre.ext"</em>, por ejemplo, <em>"phone-ejemplo.jpg"</em>.
+                </p>
+                
+                <p>
+                    <strong>Importante: Las distintas versiones de una imagen deben estar en la misma carpeta.</strong>
+                </p>
+                
+                <div>
+                    <h6>Notas:</h6>
+                    
+                    <ul>
+                        <li>
+                            Se puede dejar sin prefijo ("nombre.ext") a la imagen original/por defecto.
+                        </li>
+                        
+                        <li>
+                            El prefijo "none" no es válido por problemas con IE, Firefox y Opera.
+                        </li>
+                    </ul>
+                </div>
+            </article>
+
+            <article>
+                <p>
+                    Agregar el siguiente código a la hoja de estilos:
+                </p>
+
+                <pre>
+<code>
+body:after {
+    visibility: hidden;
+    display: none;
+    width: 0;
+    height: 0;
+}
+</code>
+                </pre>
+            </article>
+
+            <article>
+                <p>
+                    Completar la hoja de estilo con las asociaciones entre los distintos rangos de anchos de <strong>ventana</strong> y los prefijos de las imágenes correspondientes.
+                </p>
+
+                <pre>
+<code>
+@media (min-width: 1200px) {
+    body:after {
+        content: "prefijo"; /* Prefijo de la imagen */
+    }
+}
+</code>
+                </pre>
+
+                <p>
+                    Ejemplo:
+                </p>
+                
+                <pre>
+<code>
+@media (min-width: 481px) and (max-width: 767px) {
+    body:after {
+        content: "phone";
+    }
+}
+</code>
+                </pre>
+            </article>
+
+            <article>
+                <p>
+                    Antes del <code>&lt;/body&gt;</code> agregar el siguiente código:
+                </p>
+                
+                <pre>
+<code>
+&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="js/responsimg.js" type="text/javascript"&gt;&lt;/script&gt;  
+&lt;script type="text/javascript"&gt;
+    $(function() {
+        $.Responsimg({
+            defaultPrefix: 'desktop' // Prefijo por defecto, util si el navegador no soporta media queries
+        });
+    }); 
+&lt;/script&gt;
+</code>
+                </pre>
+            </article>
+        </section>
+    </body>
+</html>

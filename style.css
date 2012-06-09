@@ -1,0 +1,15 @@
+/* 
+    Document   : style
+    Created on : 09/06/2012, 10:44:52
+    Author     : FPH
+    Description:
+        Simple, no functional, style for the pages.
+*/
+
+code {
+    color: #330099;
+}
+
+.warning {
+    color: #F00;
+}
